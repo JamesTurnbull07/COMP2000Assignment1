@@ -32,7 +32,7 @@ public class World {
     private SimulationState state = SimulationState.RUNNING;
 
     private final Map<String, List<Integer>> history = new LinkedHashMap<>();
-    private int starved = 0, eaten = 0, births = 0, hops = 0;
+    private int starved = 0, eaten = 0, births = 0, hops = 0, oldAge = 0;;
 
     // A rectangular refuge that Predators are physically barred from entering.
     // Rabbit and Mouse are ordinary Prey, so nothing stops them going in.
@@ -240,6 +240,7 @@ public class World {
             if (e.isAlive() || !(e instanceof Animal)) continue;
             if (e.getDeathCause() == DeathCause.STARVED) starved++;
             else if (e.getDeathCause() == DeathCause.EATEN) eaten++;
+            else if (e.getDeathCause() == DeathCause.OLD_AGE) oldAge++;
         }
         hawks.removeIf(h -> !h.isAlive());
         foxes.removeIf(f -> !f.isAlive());

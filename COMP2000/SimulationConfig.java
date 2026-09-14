@@ -25,6 +25,7 @@ public class SimulationConfig {
         DEFAULTS.put("maxTicks", 0L); // 0 means no limit
         DEFAULTS.put("tickMs", 150L); // milliseconds between ticks
         DEFAULTS.put("safeZone", 1L); // 1 = refuge on, 0 = no refuge
+        DEFAULTS.put("superFoodChance", 5L); // percent chance each spawned food is a superfood
     }
 
     private SimulationConfig() {
@@ -112,6 +113,7 @@ public class SimulationConfig {
     public int getMaxTicks()     { return intOf("maxTicks"); }
     public int getTickMs()       { return intOf("tickMs"); }
     public boolean hasSafeZone() { return values.get("safeZone") != 0L; }
+    public int getSuperFoodChance() { return intOf("superFoodChance"); }
 
     @Override
     public String toString() { return values.toString(); }

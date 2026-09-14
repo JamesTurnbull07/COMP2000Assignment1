@@ -21,6 +21,7 @@ public abstract class Animal extends Entity {
     protected int speed;
     protected int visionRadius;
     private boolean bredThisTick = false;
+    protected int age = 0;
 
     public Animal(int x, int y, double startHealth, int speed, int visionRadius) {
         super(x, y);
@@ -30,11 +31,20 @@ public abstract class Animal extends Entity {
         this.visionRadius = visionRadius;
     }
 
-    public double getHealth() { return health; }
-    public double getMaxHealth() { return maxHealth; }
+    public double getHealth() {
+        return health;
+    }
 
-    /** Well fed enough to be worth calling fed - drives speed and foraging urgency. */
-    protected boolean isWellFed() { return health > maxHealth * 0.5; }
+    public double getMaxHealth() {
+        return maxHealth;
+    }
+
+    /**
+     * Well fed enough to be worth calling fed - drives speed and foraging urgency.
+     */
+    protected boolean isWellFed() {
+        return health > maxHealth * 0.5;
+    }
 
     protected void feed(double amount) {
         health = Math.min(health + amount, maxHealth);
@@ -43,16 +53,27 @@ public abstract class Animal extends Entity {
     // --- breeding -----------------------------------------------------
 
     /** Fraction of maxHealth needed before this animal will breed. */
-    protected double breedThreshold() { return maxHealth * 0.30; }
+    protected double breedThreshold() {
+        return maxHealth * 0.30;
+    }
 
     /** Fraction of maxHealth each parent pays per offspring. */
-    protected double breedCost() { return maxHealth * 0.20; }
+    protected double breedCost() {
+        return maxHealth * 0.20;
+    }
 
     protected boolean canBreed() {
         return !bredThisTick && health >= breedThreshold();
     }
 
-    void resetBreedFlag() { bredThisTick = false; }
+    /** ticks an animal can live before dying of old age, species can override. */
+    protected int maxAge() {
+        return 300;
+    }
+
+    void resetBreedFlag() {
+        bredThisTick = false;
+    }
 
     private void payBreedCost() {
         health -= breedCost();
@@ -68,9 +89,11 @@ public abstract class Animal extends Entity {
      * a birth for every pair in it.
      */
     protected void tryBreed(World world) {
-        if (!canBreed()) return;
+        if (!canBreed())
+            return;
         for (Animal other : world.getGrid().occupantsWithin(getX(), getY(), 1, Animal.class)) {
-            if (other == this || other.getClass() != getClass() || !other.canBreed()) continue;
+            if (other == this || other.getClass() != getClass() || !other.canBreed())
+                continue;
             try {
                 Animal child = world.spawnNear(this);
                 payBreedCost();
@@ -95,13 +118,17 @@ public abstract class Animal extends Entity {
         int range = visionRadius * 3;
         List<Animal> mates = new ArrayList<>();
         for (Animal a : world.getGrid().occupantsWithin(getX(), getY(), range, Animal.class)) {
-            if (a != this && a.getClass() == getClass() && a.canBreed()) mates.add(a);
+            if (a != this && a.getClass() == getClass() && a.canBreed())
+                mates.add(a);
         }
         Animal nearest = null;
         int best = Integer.MAX_VALUE;
         for (Animal m : mates) {
             int d = distanceTo(m);
-            if (d < best) { best = d; nearest = m; }
+            if (d < best) {
+                best = d;
+                nearest = m;
+            }
         }
         return nearest;
     }
@@ -134,7 +161,7 @@ public abstract class Animal extends Entity {
      * override it with their own restricted movement.
      */
     protected int[] stepToward(int dx, int dy) {
-        return new int[]{ clampStep(dx), clampStep(dy) };
+        return new int[] { clampStep(dx), clampStep(dy) };
     }
 
     /** At most `speed` cells along an axis, never overshooting. */
@@ -153,7 +180,8 @@ public abstract class Animal extends Entity {
         T nearest = null;
         int bestDist = Integer.MAX_VALUE;
         for (T candidate : candidates) {
-            if (!candidate.isAlive()) continue;
+            if (!candidate.isAlive())
+                continue;
             int d = this.distanceTo(candidate);
             if (d < bestDist) {
                 bestDist = d;
@@ -173,6 +201,11 @@ public abstract class Animal extends Entity {
         health -= METABOLISM;
         if (health <= 0) {
             kill(DeathCause.STARVED);
+            return;
+        }
+        age++;
+        if (age >= maxAge()) {
+            kill(DeathCause.OLD_AGE);
             return;
         }
         act(world);
