@@ -180,7 +180,7 @@ public class World {
 
         for (int i = 0; i < config.getFoodPerTick() && food.size() < config.getMaxFood(); i++) {
     // superfood spawns 5% of the time and is worth 3 times more than normal food
-    boolean isSuper = rng.nextInt(20) == 0;
+    boolean isSuper = rng.nextInt(100) < config.getSuperFoodChance();
     Food f = isSuper ? new SuperFood(rng.nextInt(width), rng.nextInt(height))
                       : new Food(rng.nextInt(width), rng.nextInt(height));
     food.add(f);
