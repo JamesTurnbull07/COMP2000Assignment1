@@ -12,16 +12,15 @@
 **1.1.** Paste the first 10 lines of the output of `git log --graph --oneline --all` from your repository:
 
 ```
- 6e6a811 (HEAD -> main, origin/main, origin/HEAD) Add old age as a third cause of death for animals
+* 74d846e (HEAD -> main, origin/main, origin/HEAD) Added log book                          
+* c905984 Added worksheet
+* 30cdd0c Cleaned up unused files
+* dc09f65 Add validation for superFoodChance range
+* 6e6a811 Add old age as a third cause of death for animals
 * d037d35 Make SuperFood spawn chance configurable, with validation
 * 2ffd228 Added Superfood. 3x for effective than normal food. 5% spawn rate
 * e53e745 Sync submitted worksheet and log book
 * 0c0f2c3 Refresh commit log and counts in worksheet section 1
-* 447eb92 Fill worksheet section 4 and add log book entries for weeks 3 to 7
-* 75dc073 Edit worksheet prose for tone
-* 19bcc81 Add log book with Week 4 entry
-* ad936b1 Add completed worksheet (section 4 left for log book)
-* ca77273 Add UML class design diagram
 ```
 
 **1.2.** Describe your workflow. Did you use branches? Pull requests?
@@ -33,7 +32,7 @@ I worked directly on main without creating branches, since most of my contributi
 
 **1.3.** Estimate the percentage of commits you contributed relative to the total in your repository.
 
-
+My own commits make up roughly 20% of the total commit history. The rest come from the team before I forked the repository. My commits add many new features such as a SuperFood class and a old age cause of death for the animals.
 
 
 
