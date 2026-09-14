@@ -1,0 +1,73 @@
+* [33m6e6a811[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Add old age as a third cause of death for animals
+* [33md037d35[m Make SuperFood spawn chance configurable, with validation
+* [33m2ffd228[m Added Superfood. 3x for effective than normal food. 5% spawn rate
+* [33me53e745[m Sync submitted worksheet and log book
+* [33m0c0f2c3[m Refresh commit log and counts in worksheet section 1
+* [33m447eb92[m Fill worksheet section 4 and add log book entries for weeks 3 to 7
+* [33m75dc073[m Edit worksheet prose for tone
+* [33m19bcc81[m Add log book with Week 4 entry
+* [33mad936b1[m Add completed worksheet (section 4 left for log book)
+* [33mca77273[m Add UML class design diagram
+*   [33m76f279b[m Merge branch 'clearer-display'
+[32m|[m[33m\[m  
+[32m|[m * [33mea80eab[m[33m ([m[1;31morigin/clearer-display[m[33m)[m Make the board readable: labels, grid lines, slower ticks
+[32m|[m[32m/[m  
+*   [33mbb6edbd[m Merge pull request #7 from DanielZ195/config-and-exceptions
+[34m|[m[35m\[m  
+[34m|[m * [33m0f2bfc0[m Put every setting in SimulationConfig and validate it up front
+[34m|[m[34m/[m  
+*   [33m0507f70[m Merge pull request #6 from DanielZ195/population-stats
+[36m|[m[1;31m\[m  
+[36m|[m * [33m2ea1b82[m Record population history, death causes and an end condition
+[36m|[m[36m/[m  
+*   [33m75954ed[m Merge pull request #5 from DanielZ195/energy-economy
+[1;32m|[m[1;33m\[m  
+[1;32m|[m * [33m5129cd4[m Make energy drive breeding, speed and survival
+[1;32m|[m[1;32m/[m  
+*   [33m85b16d1[m Merge pull request #4 from DanielZ195/chess-movement
+[1;34m|[m[1;35m\[m  
+[1;34m|[m * [33m3ad708e[m Give each species its own movement, and prey a way to escape
+[1;34m|[m[1;34m/[m  
+*   [33m6388d2e[m Merge pull request #3 from DanielZ195/spatial-grid
+[1;36m|[m[31m\[m  
+[1;36m|[m * [33mbe565c8[m Add Grid<T extends Entity> for spatial queries
+[1;36m|[m[1;36m/[m  
+*   [33m4a4383e[m Merge pull request #2 from DanielZ195/grid-coordinates
+[32m|[m[33m\[m  
+[32m|[m * [33m17817de[m[33m ([m[1;31morigin/grid-coordinates[m[33m)[m Move entities onto a 40x30 grid
+[32m|[m[32m/[m  
+*   [33maf9e454[m Merge pull request #1 from DanielZ195/seeded-rng
+[34m|[m[35m\[m  
+[34m|[m * [33m149a5bf[m[33m ([m[1;31morigin/seeded-rng[m[33m)[m Use one seeded Random instead of Math.random()
+[34m|[m[34m/[m  
+* [33mcf0d42d[m writing Main
+* [33m3fc9759[m create and write a panel
+*   [33m2c9de78[m Merge pull request #6 from AnumTaliya/daniel
+[36m|[m[1;31m\[m  
+[36m|[m * [33md1e6cb9[m[33m ([m[1;31morigin/daniel[m[33m)[m Create and write World
+[36m|[m[36m/[m  
+* [33mee7e861[m Create and write Fox.java
+* [33m81bbb31[m Create and write Hawk
+*   [33m680f819[m Merge pull request #5 from AnumTaliya/Anum-Taliya
+[1;32m|[m[1;33m\[m  
+[1;32m|[m * [33m3860936[m[33m ([m[1;31morigin/Anum-Taliya[m[33m)[m create and write class Predator
+[1;32m|[m *   [33mc8ccaad[m Merge pull request #1 from AnumTaliya/main
+[1;32m|[m [1;34m|[m[1;35m\[m  
+* [1;34m|[m [1;35m\[m   [33m7113b83[m Merge pull request #3 from AnumTaliya/daniel
+[1;36m|[m[31m\[m [1;34m\[m [1;35m\[m  
+[1;36m|[m * [1;34m|[m [1;35m|[m [33m42ac54c[m Create and write Mouse
+[1;36m|[m * [1;34m|[m [1;35m|[m [33m7fc47de[m Create and write Rabbit
+[1;36m|[m * [1;34m|[m [1;35m|[m [33maddcd1f[m Create SpawnException
+[1;36m|[m * [1;34m|[m [1;35m|[m [33m8970ece[m Create and write Prey
+[1;36m|[m[1;36m/[m [1;34m/[m [1;35m/[m  
+* [1;34m|[m [1;35m|[m [33ma25f8ed[m create and write Food
+* [1;34m|[m [1;35m|[m [33mdd6efed[m Create and write Animal
+* [1;34m|[m [1;35m|[m [33m20563f4[m Write Edible
+* [1;34m|[m [1;35m|[m [33m3f1ad59[m Create Edible
+* [1;34m|[m [1;35m|[m [33m90c46a3[m Write Entity
+[1;35m|[m [1;34m|[m[1;35m/[m  
+[1;35m|[m[1;35m/[m[1;34m|[m   
+* [1;34m|[m [33mb17b9bd[m Add Class Entity
+[1;34m|[m[1;34m/[m  
+* [33me842b29[m[33m ([m[1;31morigin/Riya[m[33m, [m[1;31morigin/James[m[33m)[m Week 3 info Update Readme.md
+* [33mf2f39d0[m Create Readme.md

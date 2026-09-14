@@ -90,6 +90,10 @@ public class SimulationConfig {
             throw new SimulationConfigException("maxFood (" + getMaxFood()
                 + ") is below foodPerTick (" + getFoodPerTick() + "), so food could never accumulate");
         }
+        if (values.get("superFoodChance") < 0 || values.get("superFoodChance") > 100) {
+            throw new SimulationConfigException(
+                    "superFoodChance must be between 0 and 100, got " + values.get("superFoodChance"));
+        }
     }
 
     private void requirePositive(String key) throws SimulationConfigException {
